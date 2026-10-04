@@ -219,7 +219,8 @@ dependencies {
     //////// END EXOPLAYER //////////
 
     testImplementation 'junit:junit:' + junitVersion
-    testImplementation 'org.robolectric:robolectric:' + robolectricVersion
+    // The application regression tests run with JDK 17, as used by CI.
+    testImplementation 'org.robolectric:robolectric:4.12.2'
     testImplementation 'androidx.work:work-testing:' + workVersion
     androidTestImplementation 'androidx.test.ext:junit:' + testXSupportVersion
     androidTestImplementation 'androidx.test.ext:truth:' + testXSupportVersion

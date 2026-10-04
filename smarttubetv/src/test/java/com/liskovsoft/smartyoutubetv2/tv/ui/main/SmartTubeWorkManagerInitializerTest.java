@@ -18,6 +18,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
+import org.robolectric.annotation.ConscryptMode;
 import org.robolectric.Shadows;
 
 import java.util.concurrent.TimeUnit;
@@ -29,6 +30,7 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(sdk = 28, application = Application.class, manifest = Config.NONE)
+@ConscryptMode(ConscryptMode.Mode.OFF)
 public class SmartTubeWorkManagerInitializerTest {
     @Test
     public void keepsNormalApplicationContext() {
