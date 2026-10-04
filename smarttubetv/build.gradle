@@ -41,6 +41,7 @@ if (new File("${projectDir}/google-services.json").exists() && (getGradle().getS
 }
 
 android {
+    testOptions.unitTests.includeAndroidResources = true
     // FIX: Default interface methods are only supported starting with Android N (--min-api 24)
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -196,6 +197,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:' + glideVersion
     implementation 'com.github.zjupure:webpdecoder:' + webpDecoderVersion
     implementation 'androidx.multidex:multidex:' + multiDexVersion
+    implementation 'androidx.work:work-runtime:' + workVersion
 
     //////// BEGIN EXOPLAYER /////////
 
@@ -218,6 +220,7 @@ dependencies {
 
     testImplementation 'junit:junit:' + junitVersion
     testImplementation 'org.robolectric:robolectric:' + robolectricVersion
+    testImplementation 'androidx.work:work-testing:' + workVersion
     androidTestImplementation 'androidx.test.ext:junit:' + testXSupportVersion
     androidTestImplementation 'androidx.test.ext:truth:' + testXSupportVersion
     androidTestImplementation 'androidx.test:runner:' + testXSupportVersion

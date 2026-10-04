@@ -298,6 +298,21 @@
             android:screenOrientation="unspecified"/>
 
         <!-- END Launchers -->
+
+        <!-- Replace only WorkManager's initializer to handle firmware that forces device storage. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            android:directBootAware="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                tools:node="remove" />
+            <meta-data
+                android:name="com.liskovsoft.smartyoutubetv2.tv.ui.main.SmartTubeWorkManagerInitializer"
+                android:value="androidx.startup" />
+        </provider>
     </application>
 
 </manifest>
