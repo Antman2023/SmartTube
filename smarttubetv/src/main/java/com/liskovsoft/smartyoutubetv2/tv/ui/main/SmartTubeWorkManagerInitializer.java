@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.UserManager;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.startup.Initializer;
 import androidx.work.Configuration;
 import androidx.work.WorkManager;
@@ -41,6 +42,7 @@ public class SmartTubeWorkManagerInitializer implements Initializer<WorkManager>
             }
 
             @Override
+            @RequiresApi(Build.VERSION_CODES.N)
             public boolean isDeviceProtectedStorage() {
                 // Some TV firmware forces all apps into device storage even after user unlock.
                 // WorkManager rejects that flag unconditionally. Only relax its check once the
